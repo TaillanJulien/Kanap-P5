@@ -1,15 +1,13 @@
 let basket = localStorage.getItem("basket");
 let basketArray = JSON.parse(basket);
 
-let param = new URLSearchParams(document.location.search);
-let id = param.get("id");
-
 fetch(`http://localhost:3000/api/products/${id}`)
     .then(function(res){
         if(res.ok){
             return res.json();
         }   
     })
+
 
     .then(function (value){
         for (let i=0; i<basketArray.length; i++){
