@@ -1,7 +1,7 @@
 let basket = localStorage.getItem("basket");
 let basketArray = JSON.parse(basket);
 
-fetch(`http://localhost:3000/api/products/${id}`)
+fetch(`http://localhost:3000/api/products/`)
     .then(function(res){
         if(res.ok){
             return res.json();
