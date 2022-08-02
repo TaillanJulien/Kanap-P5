@@ -62,9 +62,11 @@ function confirmAddBasketDOM (quantityProduct,nameProduct,colorProduct){
 // Le produit choisi par l'utilisateur {objet}
 
         let userProduct = {                                                 
-                id : Name, 
+                id : id,
+                name : value.name, 
                 quantity : userQuantityProduct,
                 color : userColorProduct,
+                price : productPrice,
         }
     
 // Recuperation du panier
