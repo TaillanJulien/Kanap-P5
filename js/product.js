@@ -13,7 +13,7 @@ function confirmAddBasketDOM (quantityProduct,nameProduct,colorProduct){
         document.querySelector(".item__content__addButton").style.position = "relative"
         document.querySelector(".item__content__addButton").appendChild(messageConfirm);
     
-        return setTimeout(function () {messageConfirm.style.display="none"}, 3000);
+        return setTimeout(function () {messageConfirm.style.display="none"}, 1000000);
     }
 
 // Récupération de l'id du produit
