@@ -52,7 +52,7 @@ async function userCart(){
                             <input type="number" class="itemQuantity" name="itemQuantity" min="1" max="100" value="${basketArray[i].quantity}">
                         </div>
                         <div class="cart__item__content__settings__delete">
-                            <p class="deleteItem">Supprimer</p>
+                            <p class="deleteItem">Supprimer</p> 
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@ async function userCart(){
         
     // Prix total du panier / Quantité totale de produits dans le panier
 
-        let totalQuantity = 0;
+        let totalQuantity = 0;  
         let totalPrice = 0;
 
         for (i = 0; i < basketArray.length; i++) {
@@ -72,10 +72,41 @@ async function userCart(){
 
         document.querySelector("#totalQuantity").textContent = `${totalQuantity}`;
         document.querySelector("#totalPrice").textContent = `${totalPrice}`;
-
     }
+
+    // Suppression d'un article
+
+    function deleteItem () {
+    
+        let basket = localStorage.getItem("basket");
+        let productToRemove = JSON.parse(basket);
+        let deleteBtn = document.querySelectorAll('.deleteItem');
+    
+        for(let i = 0; i < deleteBtn.length; i++){
+            deleteBtn[i].addEventListener("click", () => {
+                let idDelete = productToRemove[i].id;
+                let colorDelete = productToRemove[i].color;
+    
+                productToRemove = productToRemove.filter(el => el.id != idDelete || el.color != colorDelete);
+                localStorage.setItem("basket", JSON.stringify(productToRemove));
+                window.location.reload();
+            })
+        }
+    }
+
+    deleteItem();
+
 }
 
 userCart();
-    
+
+
+
+
+
+
+
+
+
+
 
