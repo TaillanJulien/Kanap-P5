@@ -74,7 +74,7 @@ async function userCart(){
         document.querySelector("#totalPrice").textContent = `${totalPrice}`;
     }
 
-    // Suppression d'un article
+    // Suppression d'un article dans le panier
 
     function deleteItem () {
     
@@ -95,6 +95,14 @@ async function userCart(){
     }
 
     deleteItem();
+
+    // Modification d'un article dans la panier
+
+    function modificationProductQuantity() {
+
+        let basket = localStorage.getItem("basket");
+        let newQuantityProduct = JSON.parse(basket);
+    }
 
 }
 
