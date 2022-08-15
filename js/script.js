@@ -22,5 +22,5 @@ fetch('http://localhost:3000/api/products')
         })
     })
     .catch((err) => {
-        alert("Une erreur est survenue -> " + err);
+        alert("Une erreur est survenue : " + err);
     });

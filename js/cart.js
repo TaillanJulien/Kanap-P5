@@ -337,8 +337,8 @@ order.addEventListener("click", (e) => {
                 window.location.href = "./confirmation.html?orderId=" + confirm.orderId;
                 localStorage.clear();
             })
-            .catch((error) => {
-                console.log("une erreur est survenue");
+            .catch((err) => {
+                console.log("une erreur est survenue" + err);
             });
     }
 });

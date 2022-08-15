@@ -113,6 +113,10 @@ function confirmAddBasketDOM (quantityProduct,nameProduct,colorProduct){
             // Si un doublon je n'ajoute pas le produit
 
                 if(userProduct.id === element.id && userProduct.color === element.color){
+                    console.table("ancienne : " + element.quantity, "nouvelle : " + userProduct.quantity);
+                    let newQte = Number(userProduct.quantity);
+                    let oldQte = Number(element.quantity);
+                    console.log(parseInt(newQte + oldQte));  
                     confirmAddBasketDOM(userQuantityProduct,Name,userColorProduct);
                     return false;
                 }
