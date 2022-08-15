@@ -16,6 +16,10 @@ function confirmAddBasketDOM (quantityProduct,nameProduct,colorProduct){
         return setTimeout(function () {messageConfirm.style.display="none"}, 1000000);
     }
 
+// Vérification quantité valide (0 - 100)
+
+    var qteInvalid = false;
+
 // Récupération de l'id du produit
 
     let param = new URLSearchParams(document.location.search);
@@ -105,7 +109,7 @@ function confirmAddBasketDOM (quantityProduct,nameProduct,colorProduct){
 
         // Un produit est déjà présent dans le panier
 
-                else{
+            else{
                         basket = JSON.parse(basketUser);
 
                         basket = basket.filter(function (element, index){
@@ -113,7 +117,12 @@ function confirmAddBasketDOM (quantityProduct,nameProduct,colorProduct){
             // Si un doublon je n'ajoute pas le produit
 
                 if(userProduct.id === element.id && userProduct.color === element.color){
-                    userProduct.quantity += element.quantity;                   
+                    userProduct.quantity += element.quantity;
+                    if ((userProduct.quantity + element.quantity) > 100){
+                        alert("Quantité incorrecte, merci de choisir entre 1 et 100");
+                        qteInvalid = true;
+                        return false;
+                    }                   
                     confirmAddBasketDOM(userQuantityProduct,Name,userColorProduct);
                     return false;
                 }
@@ -128,8 +137,10 @@ function confirmAddBasketDOM (quantityProduct,nameProduct,colorProduct){
 
         // Ajout et stockage du produit
 
-            basket.push(userProduct);
-            localStorage.setItem("basket", JSON.stringify(basket));
+            if(qteInvalid === false){
+                basket.push(userProduct);
+                localStorage.setItem("basket", JSON.stringify(basket));
+            }
         }            
     }
 })
