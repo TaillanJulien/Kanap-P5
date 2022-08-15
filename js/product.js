@@ -119,7 +119,7 @@ function confirmAddBasketDOM (quantityProduct,nameProduct,colorProduct){
                 if(userProduct.id === element.id && userProduct.color === element.color){
                     userProduct.quantity += element.quantity;
                     if ((userProduct.quantity + element.quantity) > 100){
-                        alert("Quantité incorrecte, merci de choisir entre 1 et 100");
+                        alert(`Quantité incorrecte, merci de ne pas dépasser 100 articles. ${element.quantity} déjà présent dans le panier.`);
                         qteInvalid = true;
                         return false;
                     }                   
