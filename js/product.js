@@ -56,7 +56,7 @@ function confirmAddBasketDOM (quantityProduct,nameProduct,colorProduct){
 
         let addToCart = document.querySelector("#addToCart");
         addToCart.addEventListener('click', () => {
-                let userQuantityProduct = document.querySelector("#quantity").value; 
+                let userQuantityProduct = Number(document.querySelector("#quantity").value); 
                 let userColorProduct = document.querySelector("#colors").value;
 
 // Le produit choisi par l'utilisateur {objet}
@@ -113,10 +113,7 @@ function confirmAddBasketDOM (quantityProduct,nameProduct,colorProduct){
             // Si un doublon je n'ajoute pas le produit
 
                 if(userProduct.id === element.id && userProduct.color === element.color){
-                    console.table("ancienne : " + element.quantity, "nouvelle : " + userProduct.quantity);
-                    let newQte = Number(userProduct.quantity);
-                    let oldQte = Number(element.quantity);
-                    console.log(parseInt(newQte + oldQte));  
+                    userProduct.quantity += element.quantity;                   
                     confirmAddBasketDOM(userQuantityProduct,Name,userColorProduct);
                     return false;
                 }
