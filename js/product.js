@@ -70,7 +70,6 @@ function confirmAddBasketDOM (quantityProduct,nameProduct,colorProduct){
                 name : value.name, 
                 quantity : userQuantityProduct,
                 color : userColorProduct,
-                price : productPrice,
         }
     
 // Recuperation du panier
